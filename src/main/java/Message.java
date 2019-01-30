@@ -1,5 +1,4 @@
 import javax.persistence.*;
-import javax.xml.crypto.Data;
 
 @NamedQueries({
     @NamedQuery(name = Message.FIND_MESSAGE_ID_QUERY, query = "from Message where id = : id"),
@@ -45,23 +44,19 @@ public class Message {
         this.attechedFiles = attechedFiles;
     }
 
-
     @Column
     //@Enumerated(EnumType.STRING)
     @Convert(converter = MessageKindConverter.class)
-    private MessageKindConverter kind;
+    private MessageKind kind;
 
-    public MessageKindConverter getKind() {
+    public MessageKind getKind() {
         return kind;
     }
 
-    public void setKind(MessageKindConverter kind) {
+    public void setKind(MessageKind kind) {
         this.kind = kind;
     }
 
-    @Column
-    @Temporal(TemporalType.TIMESTAMP)
-    private Data lastModificationTime;
 
     public long getMessageId() {
         return messageId;
@@ -119,11 +114,4 @@ public class Message {
         this.historyMessage = historyMessage;
     }
 
-    public Data getLastModificationTime() {
-        return lastModificationTime;
-    }
-
-    public void setLastModificationTime(Data lastModificationTime) {
-        this.lastModificationTime = lastModificationTime;
-    }
 }

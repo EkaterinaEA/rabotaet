@@ -10,18 +10,18 @@ import java.util.List;
 public class HistoryMessage {
 
     @OneToMany(fetch = FetchType.LAZY)
-    private List<Message> messagesList;
+    private List<Message> messages;
 
     @OneToOne
     @JoinColumn(name = "room_id")
     private Room room;
 
     public List<Message> getMessagesList() {
-        return messagesList;
+        return messages;
     }
 
     public void setMessagesList(List<Message> messagesList) {
-        this.messagesList = messagesList;
+        this.messages = messagesList;
     }
 
     public Room getRoom() {

@@ -1,4 +1,5 @@
 import javax.persistence.*;
+import java.util.List;
 
 
 @NamedQueries({
@@ -34,9 +35,10 @@ public class User {
     @Column(name = "email", unique = true, nullable = false)
     private String email;
 
-    public long getUserID() {
-        return userID;
-    }
+    @OneToMany(fetch = FetchType.LAZY)
+    private List<Message> messageList;
+
+    public User() {}
 
     public User(String login, String password, String email) {
         this.login = login;
@@ -44,8 +46,20 @@ public class User {
         this.email = email;
     }
 
+    public List<Message> getMessageList() {
+        return messageList;
+    }
+
+    public void setMessageList(List<Message> messageList) {
+        this.messageList = messageList;
+    }
+
     public void setUserID(long userID) {
         this.userID = userID;
+    }
+
+    public long getUserID() {
+        return userID;
     }
 
     public String getLogin() {
