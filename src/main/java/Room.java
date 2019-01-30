@@ -40,9 +40,6 @@ public class Room {
     @OneToMany
     private Message message;
 
-    @OneToOne
-    private HistoryMessage historyMessage;
-
     public Room() {}
 
     public Room(String roomTitle, String country, String region) {
@@ -107,11 +104,4 @@ public class Room {
         this.message = message;
     }
 
-    public HistoryMessage getHistoryMessage() {
-        return historyMessage;
-    }
-
-    public void setHistoryMessage(HistoryMessage historyMessage) {
-        this.historyMessage = historyMessage;
-    }
 }

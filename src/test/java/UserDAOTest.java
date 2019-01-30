@@ -46,7 +46,7 @@ public class UserDAOTest {
     }
 
     @Test
-    public void deleteUser() throws Exception {
+    public void testDeleteUser() throws Exception {
         User user = dao.inviteUser("login", "password", "email");
         User userFound = em.find(User.class, user.getUserID());
         dao.deleteUser(userFound);
@@ -54,28 +54,28 @@ public class UserDAOTest {
     }
 
     @Test
-    public void findById() throws Exception {
+    public void testFindById() throws Exception {
         User user = dao.inviteUser("login", "password", "email");
         User userFound = dao.findById(user.getUserID());
         assertEquals(user, userFound);
     }
 
     @Test
-    public void findByLogin() throws Exception {
+    public void testFindByLogin() throws Exception {
         User user = dao.inviteUser("login", "password", "email");
         User userFound = dao.findByLogin(user.getLogin());
         assertEquals(user, userFound);
     }
 
     @Test
-    public void findByEmail() throws Exception {
+    public void testFindByEmail() throws Exception {
         User user = dao.inviteUser("login", "password", "email");
         User userFound = dao.findByEmail(user.getEmail());
         assertEquals(user, userFound);
     }
 
     @Test
-    public void findAll() throws Exception {
+    public void testFindAll() throws Exception {
         List<User> users = dao.findAll();
         assertNotNull(users);
     }

@@ -7,7 +7,7 @@ import javax.persistence.*;
 })
 
 @Entity
-@Table(name = "message")
+@Table(name = "messages")
 public class Message {
 
     public static final String FIND_MESSAGE_ID_QUERY = "findMessageById";
@@ -33,9 +33,6 @@ public class Message {
 
     @ManyToOne
     private Room room;
-
-    @ManyToOne
-    private HistoryMessage historyMessage;
 
     public Message() {}
 
@@ -104,14 +101,6 @@ public class Message {
 
     public void setRoom(Room room) {
         this.room = room;
-    }
-
-    public HistoryMessage getHistoryMessage() {
-        return historyMessage;
-    }
-
-    public void setHistoryMessage(HistoryMessage historyMessage) {
-        this.historyMessage = historyMessage;
     }
 
 }

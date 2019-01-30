@@ -1,4 +1,5 @@
 import javax.persistence.EntityManager;
+import java.util.List;
 
 public class MessageDAO extends EntityDAO {
 
@@ -15,4 +16,14 @@ public class MessageDAO extends EntityDAO {
         return message;
     }
 
+    public Message findByRoom(String roomTitle){
+        return getManager().createNamedQuery("findMessageByRoom", Message.class)
+                .setParameter("roomTitle", roomTitle)
+                .getSingleResult();
+    }
+
+    public List<Message> findAll(){
+        return getManager().createNamedQuery("findAllMessages", Message.class)
+                .getResultList();
+    }
 }
