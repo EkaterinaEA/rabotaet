@@ -35,7 +35,7 @@ public class UserDAOTest {
     }
 
     @Test
-    public void testInviteUser(String login, String password, String email) throws Exception {
+    public void testInviteUser() throws Exception {
         User user = dao.inviteUser("login", "password", "email");
         assertNotEquals(0L, user.getUserID());
         assertEquals("login", user.getLogin());
